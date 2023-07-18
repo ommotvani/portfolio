@@ -3,6 +3,7 @@ import About from '@/components/About'
 import Skills from '@/components/Skills'
 import Project from '@/components/Project'
 import Contact from '@/components/Contact'
+// import 'semantic-ui-css/semantic.min.css';
 
 // const inter = Inter({ subsets: ['latin'] })
 

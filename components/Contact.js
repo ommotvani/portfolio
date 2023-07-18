@@ -1,13 +1,29 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useRef } from 'react'
 import contactus from '../public/assets/images/contact.jpg'
 import { AiOutlineMail } from 'react-icons/ai'
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
 import { BsFillPersonLinesFill } from 'react-icons/bs'
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
 import Link from 'next/link'
+import emailjs from '@emailjs/browser';
 
 function Contact() {
+    const form = useRef()
+
+    // const handleSubmit = (e) =>{
+    //     e.preventDefault();
+    //     console.log('e: ', e);
+
+    //     emailjs.sendForm('service_k75cknl', 'template_aov1v1o', form.current, '5V5QJahW4H6TG1Px6')
+    //     .then((result) => {
+    //        alert(result.text)
+    //        alert("email sent suceefully")
+    //     }, (error) => {
+    //         alert(error.text)
+    //     });
+
+    // }
     return (
         <div id='contact' className='w-full lg:h-screen'>
             <div className='m-auto px-2 py-16 max-w-[1240px] w-full '>
@@ -58,11 +74,11 @@ function Contact() {
                     <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
                         <div className='p-4'>
 
-                            <form>
+                            <form action='https://formspree.io/f/xpzgwwez' method='POST'>
                                 <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                                     <div className='flex flex-col'>
                                         <label className='uppercase text-sm py-2'>Name</label>
-                                        <input type='text' className='border-2 rounded-lg  p-3 flex border-gray-300' />
+                                        <input type='text' className='border-2 rounded-lg  p-3 flex border-gray-300' name='name' />
                                     </div>
                                     <div className='flex flex-col'>
                                         <label className='uppercase text-sm py-2'>Phone Number</label>
@@ -72,7 +88,7 @@ function Contact() {
 
                                 <div className='flex flex-col py-2'>
                                     <label className='uppercase text-sm py-2'>Email</label>
-                                    <input type='email' className='border-2 rounded-lg  p-3 flex border-gray-300' />
+                                    <input type='email' className='border-2 rounded-lg  p-3 flex border-gray-300'  name='email' />
                                 </div>
 
                                 <div className='flex flex-col py-2'>
@@ -82,10 +98,10 @@ function Contact() {
 
                                 <div className='flex flex-col py-2'>
                                     <label className='uppercase text-sm py-2'>Message</label>
-                                    <textarea className='border-r rounded-lg p-3 border-gray-300' rows={10} />
+                                    <textarea className='border-r rounded-lg p-3 border-gray-300' rows={10} name='message'/>
                                 </div>
 
-                                <button className='w-full p-4 text-gray-100 mt-4'>Send Message</button>
+                                <button type='submit' className='w-full p-4  mt-4 shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white'>Send Message</button>
 
                             </form>
 
